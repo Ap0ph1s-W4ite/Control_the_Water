@@ -241,18 +241,10 @@ void loop () {
   else if (hour >= empty_h_s && hour <= 23) {
     if (temperature <= empty_temp)  {
       while(temperature <= empty_temp + 10) {
-        setup();
         hour = now.hour(), DEC;
         minute = now.minute(), DEC;
         temperature = temp_sensor();
         lcd_po18(0,temperature,1,hour,minute);
-        digitalWrite(8, HIGH);
-        Serial.print(now.hour(), DEC);
-        Serial.print(':');
-        Serial.print(now.minute(), DEC);
-        Serial.print(':');
-        Serial.print(now.second(), DEC);
-        Serial.println();
         delay(1000);
       }
     }
